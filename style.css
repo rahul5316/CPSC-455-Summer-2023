@@ -53,8 +53,22 @@ form input {
   width: calc(33.333% - 200px);
 
  }
+ 
  #delete-all{
   background-color: #ff0000;
+  margin-bottom: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  size: 10px;
+  height: 40px;
+  width: calc(33.333% - 200px);
+  border-radius: 50px;
+
+ }
+ #sort-items{
+  background-color: #4800ff;
   margin-bottom: 180px;
   display: flex;
   justify-content: center;

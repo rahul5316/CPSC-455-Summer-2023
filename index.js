@@ -28,9 +28,11 @@ if (!localStorage.getItem('items')) {
     localStorage.setItem('items', JSON.stringify(initialItems));
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('#item-form');
     const deleteAllButton = document.querySelector('#delete-all');
+    const sortButton = document.querySelector('#sort-items');
     let items = JSON.parse(localStorage.getItem('items')) || [];
 
     items.forEach(function(item) {
@@ -59,6 +61,19 @@ document.addEventListener('DOMContentLoaded', function() {
         items = [];
     });
 
+    sortButton.addEventListener('click', function() {
+        items.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+
+        localStorage.setItem('items', JSON.stringify(items));
+        document.querySelector('#item-list').innerHTML = '';
+        
+        items.forEach(function(item) {
+            addItemToList(item);
+        });
+    });
+
     function addItemToList(item) {
         let li = document.createElement('li');
         li.innerHTML = `<h2>${item.name}</h2>
@@ -69,5 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#item-list').appendChild(li);
     }
 });
+
 
 
