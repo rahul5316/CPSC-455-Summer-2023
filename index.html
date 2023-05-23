@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Inventory Management</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+    </nav>
+    <main>
+        <form id="item-form">
+          <body style="background-color:#33475b">
+            <input type="text" id="item-name" placeholder="Item Name" required>
+            <input type="text" id="item-description" placeholder="Description" required>
+            <input type="number" id="item-price" placeholder="Price" required>
+            <input type="text" id="item-img" placeholder="Image URL">
+            <button type="submit" id = "add-btn">Add Item</button>
+            <button type="reset" id = "clear-btn">Clear</button>
+        </form>
+        <button id="delete-all">Delete All</button>
+        <ul id="item-list"></ul>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
