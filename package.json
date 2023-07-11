@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/rahul5316/CPSC-455-Summer-2023#readme",
   "dependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5"
   }
 }

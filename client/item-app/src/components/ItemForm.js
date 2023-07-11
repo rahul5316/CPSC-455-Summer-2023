@@ -11,10 +11,13 @@ const ItemForm = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [imageURL, setImageURL] = useState('');
+  const [manufacturer, setManafacturerValue] = useState('');
 
   const dispatch = useDispatch();
 
   // useEffect to set the form data when an item is selected for editing
+
+
   useEffect(() => {
     if(selectedItem) {
       setItemId(selectedItem.id);
@@ -22,6 +25,7 @@ const ItemForm = () => {
       setDescription(selectedItem.description);
       setPrice(selectedItem.price);
       setImageURL(selectedItem.imageURL);
+      setManafacturerValue(selectedItem.manufacturer);
     }
   }, [selectedItem])
 
@@ -35,6 +39,7 @@ const ItemForm = () => {
       description,
       price,
       imageURL,
+      manufacturer,
     };
 
     // check if there is a selected item, if there is, update, otherwise create new
@@ -45,12 +50,13 @@ const ItemForm = () => {
         })
         .catch(error => console.error(`There was an error updating the item: ${error}`));
     } else {
-      axios.post('http://localhost:5001/items', newItem)
+      axios.post('http://localhost:5001/api/items', newItem)
         .then(response => {
           console.log(response.data);
           setItemId(itemId + 1);
         })
         .catch(error => console.error(`There was an error posting the new item: ${error}`));
+        
     }
 
     // Clear form inputs
@@ -58,6 +64,7 @@ const ItemForm = () => {
     setDescription('');
     setPrice('');
     setImageURL('');
+    setManafacturerValue('');
   };
 
   const handleClear = () => {
@@ -65,6 +72,7 @@ const ItemForm = () => {
     setDescription('');
     setPrice('');
     setImageURL('');
+    setManafacturerValue('');
   };
 
   return (
@@ -100,6 +108,14 @@ const ItemForm = () => {
           type="text"
           value={imageURL}
           onChange={(e) => setImageURL(e.target.value)}
+        />
+      </label>
+      <label>
+        Manafacturer:
+        <input
+          type="text"
+          value={manufacturer}
+          onChange={(e) => setManafacturerValue(e.target.value)}
         />
       </label>
       <button type="submit">{selectedItem ? 'Update' : 'Add'}</button>
