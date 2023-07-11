@@ -1,0 +1,26 @@
+{
+  "name": "cpsc-455-summer-2023",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/server.js",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahul5316/CPSC-455-Summer-2023.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahul5316/CPSC-455-Summer-2023/issues"
+  },
+  "homepage": "https://github.com/rahul5316/CPSC-455-Summer-2023#readme",
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5"
+  }
+}
