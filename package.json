@@ -5,8 +5,8 @@
   "scripts": {
     "server": "node server/server.js",
     "client": "cd client/item-app && npm start",
-    "build-server":"cd server && npm i",
-    "build-client":"cd client/item-app && npm i",
+    "build-server": "cd server && npm i",
+    "build-client": "cd client/item-app && npm i",
     "test": "jest"
   },
   "repository": {
@@ -22,7 +22,8 @@
   "homepage": "https://github.com/rahul5316/CPSC-455-Summer-2023#readme",
   "dependencies": {
     "concurrently": "^8.2.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "mongoose": "^7.4.1"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
