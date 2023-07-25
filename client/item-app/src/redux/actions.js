@@ -5,6 +5,23 @@ export const SELECT_ITEM = 'SELECT_ITEM';
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 export const CLEAR_ITEMS = 'CLEAR_ITEMS';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
+export const SET_FILTER_KEY = 'SET_FILTER_KEY';
+
+
+
+export const fetchAllItems = () => {
+  return dispatch => {
+    axios.get('/items')
+      .then(res => {
+        dispatch({
+          type: 'FETCH_ALL_ITEMS', // you may want to declare this as a constant at the top
+          payload: res.data
+        });
+      })
+      .catch(err => console.error(err));
+  }
+};
+
 
 
 export const addItem = item => {

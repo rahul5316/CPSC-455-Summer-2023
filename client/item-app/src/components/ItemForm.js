@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { addItem, selectItem } from '/Users/rahul/Desktop/CPSC-455-Summer-2023/client/item-app/src/redux/actions.js';
+import { addItem, selectItem, updateItem } from '../redux/actions.js';
 
 const ItemForm = () => {
   const selectedItem = useSelector((state) => state.selectedItem);
@@ -44,18 +44,21 @@ const ItemForm = () => {
 
     // check if there is a selected item, if there is, update, otherwise create new
     if (selectedItem) {
-      axios.put(`http://localhost:5001/items/${selectedItem.id}`, newItem)
+      axios.put(`http://localhost:5002/items/${selectedItem.id}`, newItem)
         .then(response => {
           console.log(response.data);
         })
         .catch(error => console.error(`There was an error updating the item: ${error}`));
+      // dispatch(updateItem(newItem)); 
     } else {
-      axios.post('http://localhost:5001/api/items', newItem)
+      axios.post('http://localhost:5002/api/items', newItem)
         .then(response => {
           console.log(response.data);
           setItemId(itemId + 1);
         })
         .catch(error => console.error(`There was an error posting the new item: ${error}`));
+    //   dispatch(addItem(newItem)); // Dispatch the action to add the item to the store
+    // setItemId(itemId + 1);
         
     }
 

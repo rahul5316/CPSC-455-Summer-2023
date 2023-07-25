@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteItem, selectItem, updateItem } from '/Users/rahul/Desktop/CPSC-455-Summer-2023/client/item-app/src/redux/actions.js';
+import { deleteItem, selectItem, updateItem } from '../redux/actions.js';
 
 const ItemDetail = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const ItemDetail = () => {
   };
 
   const handleDeleteItem = () => {
-    axios.delete(`http://localhost:5001/items/${selectedItem.id}`)
+    axios.delete(`http://localhost:5002/items/${selectedItem.id}`)
       .then(response => {
         console.log(`The item ${response.data[0].name} was deleted.`);
       })
@@ -24,7 +24,7 @@ const ItemDetail = () => {
   };
 
   const handleUpdateItem = () => {
-    axios.put(`http://localhost:5001/items/${selectedItem.id}`, updatedItem)
+    axios.put(`http://localhost:5002/items/${selectedItem.id}`, updatedItem)
       .then(response => {
         console.log(`The item was updated.`);
       })

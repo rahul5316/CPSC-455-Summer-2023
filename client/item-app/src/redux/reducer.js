@@ -6,6 +6,10 @@ const reducer = (state = [], action) => {
       return { ...state, items: [...state.items, action.payload] };
     case REMOVE_ITEM:
       return { ...state, items: state.items.filter(item => item.id !== action.payload) };
+
+      case 'FETCH_ALL_ITEMS':
+  return { ...state, items: action.payload };
+
     case SELECT_ITEM:
       return { ...state, selectedItem: state.items.find(item => item.id === action.payload) };
     case UPDATE_ITEM:
@@ -14,6 +18,7 @@ const reducer = (state = [], action) => {
         items: state.items.map(item => item.id === action.payload.id ? action.payload : item),
         selectedItem: action.payload.id === state.selectedItem.id ? action.payload : state.selectedItem
       };
+      
     case SET_SEARCH_QUERY:
       return { ...state, searchQuery: action.payload };
     case CLEAR_ITEMS:

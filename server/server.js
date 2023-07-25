@@ -1,40 +1,9 @@
-// const express = require('express');
-// const path = require('path');
-// const cors = require('cors');
-// const mongoose = require('mongoose');
-
-
-// mongoose.connect('mongodb://localhost/your-database-name', { useNewUrlParser: true, useUnifiedTopology: true });
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-//   console.log('Connected to MongoDB');
-// });
-
-
-// const app = express();
-
-// app.use(cors());
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
-// // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, '../client/build')));
-
-// // Rest of your endpoints...
-
-// // The "catchall" handler: for any request that doesn't match above, send back React's index.html file.
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
-
-// const port = process.env.PORT || 5001;
-// app.listen(port, () => console.log(`Server is running on port ${port}`));
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
+require("dotenv").config()
 
 app.use(cors());
 app.use(express.json());
@@ -46,6 +15,8 @@ const mongoDBConnectionString = 'mongodb+srv://m001-student:m001-mongodb-basics@
 
 // MongoDB connection
 mongoose.connect(mongoDBConnectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -112,13 +83,10 @@ app.delete('/api/items/:id', async (req, res) => {
   }
 });
 
-
-
-// The "catchall" handler: for any request that doesn't match above, send back React's index.html file.
 app.get('*', (req, res) => {
   res.sendFile('/Users/rahul/Desktop/CPSC-455-Summer-2023/client/index.html');
 });
 
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5002;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
