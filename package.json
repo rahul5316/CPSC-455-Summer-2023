@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server/server.js",
     "client": "cd client/item-app && npm start",
-    "build":"concurrently \"cd server && npm i\" \"cd client/item-app && npm i\"",
+    "build-server":"cd server && npm i",
+    "build-client":"cd client/item-app && npm i",
     "test": "jest"
   },
   "repository": {
