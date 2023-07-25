@@ -1,25 +1,25 @@
 // took help from external resources like stack overflow, chat gpt etc
 
-let initialItems = [
-    {
-        name: "Kit-Kat ",
-        description: "This is a kit kat bar",
-        price: 3.99,
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-8-oRAEcdg9qjCsZgX7HJuI9L4JNbwuWI9yPVdQ7Wnw&s"
-    },
-    {
-        name: "Protein-Powder",
-        description: "This is a jar of protein powder",
-        price: 99.99,
-        img: "https://m.media-amazon.com/images/I/71WMr+UDpSL._AC_SX425_.jpg"
-    },
-    {
-        name: "Protein-Bar",
-        description: "This is a Protein Bars",
-        price: 5.99,
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkM1DtU-sVdX0ZOhbEnznuAMR1JweLK6tpJVJwfoM3K0MuqpZ5ynprh3xZYvEbsmGA7Yw&usqp=CAU"
-    }
-];
+// let initialItems = [
+//     {
+//         name: "Kit-Kat ",
+//         description: "This is a kit kat bar",
+//         price: 3.99,
+        
+//     },
+//     {
+//         name: "Protein-Powder",
+//         description: "This is a jar of protein powder",
+//         price: 99.99,
+//         img: "https://m.media-amazon.com/images/I/71WMr+UDpSL._AC_SX425_.jpg"
+//     },
+//     {
+//         name: "Protein-Bar",
+//         description: "This is a Protein Bars",
+//         price: 5.99,
+//         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkM1DtU-sVdX0ZOhbEnznuAMR1JweLK6tpJVJwfoM3K0MuqpZ5ynprh3xZYvEbsmGA7Yw&usqp=CAU"
+//     }
+// ];
 
 
 // Check if items already exist in local storage
