@@ -5,12 +5,12 @@ import { selectItem } from '../redux/actions.js';
 import { fetchAllItems } from '../redux/actions';
 const ItemList = () => {
   const [items, setItems] = useState([]);
-  const [filterKey, setFilterKey ] = useState('');
+  const [filterKey, setFilterKey] = useState('');
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get('http://localhost:5002/api/items')
+    axios.get('https://four55-backend-assignment.onrender.com/api/items')
       .then(response => {
         setItems(response.data);
       })
@@ -18,26 +18,26 @@ const ItemList = () => {
   }, []);
 
   const handleDeleteItem = (id) => {
-    axios.delete(`http://localhost:5002/api/items/${id}`)
+    axios.delete(`https://four55-backend-assignment.onrender.com/api/items/${id}`)
       .then(response => {
         setItems(items.filter(item => item.id !== id)); // Updates the state
       })
       .catch(error => console.error(`There was an error deleting the item: ${error}`));
 
-      axios.get('http://localhost:5002/api/items')
+    axios.get('https://four55-backend-assignment.onrender.com/api/items')
       .then(response => {
         setItems(response.data);
       })
       .catch(error => console.error(`There was an error retrieving the items: ${error}`));
   };
 
-  const handleFilterItem = () =>{
-    axios.get('http://localhost:5002/api/items')
+  const handleFilterItem = () => {
+    axios.get('https://four55-backend-assignment.onrender.com/api/items')
       .then(response => {
         setItems(response.data.filter(item => item.name.startsWith(filterKey)));
-        
+
       })
-   
+
 
   }
 
@@ -51,11 +51,11 @@ const ItemList = () => {
             <img src={item.imageURL} alt={item.name} />
             <p>{item.name}</p>
             <p>{item.description}</p>
-              <p>Price: ${item.price}</p>
-              <p>Manufacturer: {item.manufacturer}</p>
-            
+            <p>Price: ${item.price}</p>
+            <p>Manufacturer: {item.manufacturer}</p>
+
             <button onClick={() => handleDeleteItem(item._id)}>Delete</button>
-            
+
           </li>
         ))}
       </ul>

@@ -15,7 +15,7 @@ const ItemDetail = () => {
   };
 
   const handleDeleteItem = () => {
-    axios.delete(`http://localhost:5002/items/${selectedItem.id}`)
+    axios.delete(`https://four55-backend-assignment.onrender.com/items/${selectedItem.id}`)
       .then(response => {
         console.log(`The item ${response.data[0].name} was deleted.`);
       })
@@ -24,7 +24,7 @@ const ItemDetail = () => {
   };
 
   const handleUpdateItem = () => {
-    axios.put(`http://localhost:5002/items/${selectedItem.id}`, updatedItem)
+    axios.put(`https://four55-backend-assignment.onrender.com/items/${selectedItem.id}`, updatedItem)
       .then(response => {
         console.log(`The item was updated.`);
       })
@@ -40,35 +40,35 @@ const ItemDetail = () => {
         <h2>Item Detail</h2>
         <form>
           <label>
-            Name: 
-            <input 
-              type="text" 
-              value={updatedItem.name} 
-              onChange={(e) => setUpdatedItem({ ...updatedItem, name: e.target.value })} 
+            Name:
+            <input
+              type="text"
+              value={updatedItem.name}
+              onChange={(e) => setUpdatedItem({ ...updatedItem, name: e.target.value })}
             />
           </label>
           <label>
-            Description: 
-            <input 
-              type="text" 
-              value={updatedItem.description} 
-              onChange={(e) => setUpdatedItem({ ...updatedItem, description: e.target.value })} 
+            Description:
+            <input
+              type="text"
+              value={updatedItem.description}
+              onChange={(e) => setUpdatedItem({ ...updatedItem, description: e.target.value })}
             />
           </label>
           <label>
-            Price: 
-            <input 
-              type="text" 
-              value={updatedItem.price} 
-              onChange={(e) => setUpdatedItem({ ...updatedItem, price: e.target.value })} 
+            Price:
+            <input
+              type="text"
+              value={updatedItem.price}
+              onChange={(e) => setUpdatedItem({ ...updatedItem, price: e.target.value })}
             />
           </label>
           <label>
-            Image URL: 
-            <input 
-              type="text" 
-              value={updatedItem.imageURL} 
-              onChange={(e) => setUpdatedItem({ ...updatedItem, imageURL: e.target.value })} 
+            Image URL:
+            <input
+              type="text"
+              value={updatedItem.imageURL}
+              onChange={(e) => setUpdatedItem({ ...updatedItem, imageURL: e.target.value })}
             />
           </label>
         </form>

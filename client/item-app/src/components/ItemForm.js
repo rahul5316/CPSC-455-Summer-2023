@@ -5,7 +5,7 @@ import { addItem, selectItem, updateItem } from '../redux/actions.js';
 
 const ItemForm = () => {
   const selectedItem = useSelector((state) => state.selectedItem);
-  
+
   const [itemId, setItemId] = useState(3);
   const [itemName, setItemName] = useState('');
   const [description, setDescription] = useState('');
@@ -19,7 +19,7 @@ const ItemForm = () => {
 
 
   useEffect(() => {
-    if(selectedItem) {
+    if (selectedItem) {
       setItemId(selectedItem.id);
       setItemName(selectedItem.name);
       setDescription(selectedItem.description);
@@ -44,22 +44,22 @@ const ItemForm = () => {
 
     // check if there is a selected item, if there is, update, otherwise create new
     if (selectedItem) {
-      axios.put(`http://localhost:5002/items/${selectedItem.id}`, newItem)
+      axios.put(`https://four55-backend-assignment.onrender.com/items/${selectedItem.id}`, newItem)
         .then(response => {
           console.log(response.data);
         })
         .catch(error => console.error(`There was an error updating the item: ${error}`));
       // dispatch(updateItem(newItem)); 
     } else {
-      axios.post('http://localhost:5002/api/items', newItem)
+      axios.post('https://four55-backend-assignment.onrender.com/api/items', newItem)
         .then(response => {
           console.log(response.data);
           setItemId(itemId + 1);
         })
         .catch(error => console.error(`There was an error posting the new item: ${error}`));
-    //   dispatch(addItem(newItem)); // Dispatch the action to add the item to the store
-    // setItemId(itemId + 1);
-        
+      //   dispatch(addItem(newItem)); // Dispatch the action to add the item to the store
+      // setItemId(itemId + 1);
+
     }
 
     // Clear form inputs
