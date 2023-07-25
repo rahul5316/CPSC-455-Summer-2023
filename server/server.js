@@ -83,9 +83,9 @@ app.delete('/api/items/:id', async (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
-  res.sendFile('/Users/rahul/Desktop/CPSC-455-Summer-2023/client/index.html');
-});
+// app.get('*', (req, res) => {
+//   res.sendFile('/Users/rahul/Desktop/CPSC-455-Summer-2023/client/index.html');
+// });
 
 const port = process.env.PORT || 5002;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
