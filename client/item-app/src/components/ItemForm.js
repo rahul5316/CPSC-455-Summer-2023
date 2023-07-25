@@ -34,7 +34,6 @@ const ItemForm = () => {
 
     // Create a new item object
     const newItem = {
-      id: itemId,
       name: itemName,
       description,
       price,
